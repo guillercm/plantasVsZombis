@@ -1,0 +1,701 @@
+:root {
+	--tamCuadricula: 100px;
+	--columnas: 8;
+	--tamSol: 60px;
+	--tamGuisante: 60px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
+}
+
+.oculto {
+	display: none !important;
+}
+
+body {
+	background-color: black;
+    overflow: hidden;
+    background: url(../multimedia/diaFondo.png);
+    background-repeat: no-repeat;
+    background-position-x: -227px;
+    background-size: 1766px;
+    background-position-y: -43px;
+    background-color: #73c82d;
+}
+
+#areaJuego {
+	display: grid;
+	grid-template-columns: repeat(var(--columnas), var(--tamCuadricula));
+	width: fit-content;
+}
+
+.cuadricula, .cuadriculaDeshabilitada {
+	width: var(--tamCuadricula);
+	height: var(--tamCuadricula);
+	/* border: 1px solid black; */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 1;
+}
+
+.cuadricula:after {
+    content: '';
+    width: var(--tamCuadricula);
+    height: var(--tamCuadricula);
+    height: 100px;
+    background-size: cover;
+    position: absolute;
+	z-index: -1;
+}
+
+.cespedClaro:after {
+	background-image: url(../multimedia/hiervaClara.png);
+}
+
+.cespedOscuro:after {
+	background-image: url(../multimedia/hiervaOscura.png);
+}
+
+
+/*
+let codigo = "";
+for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 8; j++) {
+        codigo += `
+        .agua${i}${j}:after {
+        	background-image: url(../multimedia/fondoPiscina${i}${j}.png);
+        }
+        
+        `;
+    }
+    console.log(codigo);
+}
+*/
+.agua00:after {
+	background-image: url(../multimedia/fondoPiscina00.png);
+}
+
+
+.agua01:after {
+	background-image: url(../multimedia/fondoPiscina01.png);
+}
+
+
+.agua02:after {
+	background-image: url(../multimedia/fondoPiscina02.png);
+}
+
+
+.agua03:after {
+	background-image: url(../multimedia/fondoPiscina03.png);
+}
+
+
+.agua04:after {
+	background-image: url(../multimedia/fondoPiscina04.png);
+}
+
+
+.agua05:after {
+	background-image: url(../multimedia/fondoPiscina05.png);
+}
+
+
+.agua06:after {
+	background-image: url(../multimedia/fondoPiscina06.png);
+}
+
+
+.agua07:after {
+	background-image: url(../multimedia/fondoPiscina07.png);
+}
+
+
+.agua10:after {
+	background-image: url(../multimedia/fondoPiscina10.png);
+}
+
+
+.agua11:after {
+	background-image: url(../multimedia/fondoPiscina11.png);
+}
+
+
+.agua12:after {
+	background-image: url(../multimedia/fondoPiscina12.png);
+}
+
+
+.agua13:after {
+	background-image: url(../multimedia/fondoPiscina13.png);
+}
+
+
+.agua14:after {
+	background-image: url(../multimedia/fondoPiscina14.png);
+}
+
+
+.agua15:after {
+	background-image: url(../multimedia/fondoPiscina15.png);
+}
+
+
+.agua16:after {
+	background-image: url(../multimedia/fondoPiscina16.png);
+}
+
+
+.agua17:after {
+	background-image: url(../multimedia/fondoPiscina17.png);
+}
+
+#divPala {
+    position: absolute;
+    width: 50px;
+    top: 0;
+    margin-left: 222px;
+    background-color: antiquewhite;
+    padding: 4px;
+    border-radius: 13px;
+    margin-top: 4px;
+	cursor: pointer;
+}
+
+.sinPala img {
+	visibility: hidden !important;
+}
+
+.sinPala:hover {
+    background-color: antiquewhite !important;
+}
+
+#divPala:hover {
+	background-color: #ceb99d;
+}
+
+#divPala img {
+	width: 100%;
+}
+
+@-webkit-keyframes rotating
+
+/* Safari and Chrome */
+	{
+	from {
+		top: calc(var(--tamSol) * -1);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	to {
+		top: 100vh;
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotatingGuisantes {
+	from {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes downSoles {
+	from {
+		top: calc(var(--tamSol) * -1);
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	to {
+		top: 100vh;
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes movimientoGuisantes {
+	from {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotating {
+	from {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.guisante {
+	position: absolute;
+	background: url(../multimedia/plantas/guisante.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: calc(var(--tamCuadricula) / 4);
+	height: calc(var(--tamCuadricula) / 4);
+	z-index: 2;
+	border-radius: 50%;
+	animation-iteration-count: infinite;
+	-webkit-animation: rotatingGuisantes 2s linear infinite;
+	-moz-animation: rotatingGuisantes 2s linear infinite;
+	-ms-animation: rotatingGuisantes 2s linear infinite;
+	-o-animation: rotatingGuisantes 2s linear infinite;
+	animation: rotatingGuisantes 2s linear infinite;
+}
+
+.guisanteFuego {
+	position: absolute;
+	background: url(../multimedia/plantas/guisanteFuego.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: calc(var(--tamCuadricula) / 4);
+	height: calc(var(--tamCuadricula) / 4);
+	z-index: 2;
+	border-radius: 50%;
+	animation-iteration-count: infinite;
+	-webkit-animation: rotatingGuisantes 2s linear infinite;
+	-moz-animation: rotatingGuisantes 2s linear infinite;
+	-ms-animation: rotatingGuisantes 2s linear infinite;
+	-o-animation: rotatingGuisantes 2s linear infinite;
+	animation: rotatingGuisantes 2s linear infinite;
+}
+
+.guisanteCongelado {
+	position: absolute;
+	background: url(../multimedia/plantas/guisanteCongelado.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: calc(var(--tamCuadricula) / 4);
+	height: calc(var(--tamCuadricula) / 4);
+	z-index: 2;
+	border-radius: 50%;
+	animation-iteration-count: infinite;
+	-webkit-animation: rotatingGuisantes 2s linear infinite;
+	-moz-animation: rotatingGuisantes 2s linear infinite;
+	-ms-animation: rotatingGuisantes 2s linear infinite;
+	-o-animation: rotatingGuisantes 2s linear infinite;
+	animation: rotatingGuisantes 2s linear infinite;
+}
+
+.sol {
+
+	position: absolute;
+	background: url(../multimedia/sol.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: var(--tamGuisante);
+	height: var(--tamGuisante);
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 2;
+
+	animation-iteration-count: infinite;
+	-webkit-animation: downSoles 12s linear infinite;
+	-moz-animation: downSoles 12s linear infinite;
+	-ms-animation: downSoles 12s linear infinite;
+	-o-animation: downSoles 12s linear infinite;
+	animation: downSoles 12s linear infinite;
+	
+}
+
+.solDeGirasol {
+	-webkit-animation: rotating 12s linear infinite !important;
+	-moz-animation: rotating 12s linear infinite !important;
+	-ms-animation: rotating 12s linear infinite !important;
+	-o-animation: rotating 12s linear infinite !important;
+	animation: rotating 12s linear infinite !important;
+}
+
+#cartelSoles {
+	position: relative;
+}
+
+#divIndicadorSoles {
+	position: absolute;
+	font-size: 37px;
+	color: black;
+	top: 10px;
+	left: 106px;
+	font-family: fantasy;
+}
+
+#panelPlantas {
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+    max-height: 66.7vh;
+    overflow-y: auto;
+	position: relative;
+	z-index: 2;
+}
+
+.gorroZombie {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	z-index: 2;
+}
+
+.gorroZombie img {
+	width: 100%;
+	height: 100%;
+}
+
+.flotador {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+}
+
+.flotador img {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.flotador .flotador1 {
+	top: 46px;
+	right: 46px;
+	position: relative;
+	z-index: -1;
+}
+
+.flotador .flotador2 {
+	bottom: 98px;
+	right: 56px;
+	position: relative;
+}
+
+#panelPlantas .panelPlanta {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	border-radius: 10px;
+	border: 2px solid #7c4141;
+    /* background-image: url(../multimedia/plantas/girasol_logo.png); */
+    background-color: #a1a653;
+    background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#panelPlantas .panelPlanta .costePlanta {
+	font-size: 20px;
+	background-color: white;
+	color: black;
+	border: 2px solid #7c4141;
+	font-family: fantasy;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	padding: 2px;
+	border-radius: 3px;
+}
+
+.fondoCargandoPlanta {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.4;
+	z-index: 1;
+	border-radius: 10px;
+}
+
+.cargandoPlanta {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.8;
+	z-index: 2;
+	border-radius: 10px;
+}
+
+.transition_5 {
+	transition: 5s;
+}
+
+.transition_20 {
+	transition: 20s;
+}
+
+
+.plantaArrastrar, #imgPalaRaton {
+    width: var(--tamCuadricula);
+    height: var(--tamCuadricula);
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+	z-index: 2;
+}
+
+#imgPalaRaton {
+    width: calc(var(--tamCuadricula)/1.4);
+    height: calc(var(--tamCuadricula)/1.4);
+}
+
+.divZombi {
+	position: absolute;
+}
+
+.divZombi .imgZombie {
+	height: 100%;
+}
+
+@keyframes color-animation {
+    0% {
+		color: black;
+    }
+    100% {
+       color: red;
+    } 
+ }
+
+.divIndicadorSolesRojo {
+	animation: color-animation 0.2s infinite linear alternate;
+}
+
+@keyframes opacity-animation {
+    0% {
+		opacity: 1;
+    }
+    100% {
+       opacity: 0.4;
+    } 
+ }
+
+.celdaAnimada {
+	animation: opacity-animation 1s infinite linear alternate;
+}
+
+.explosionPatatapum {
+    position: absolute;
+    top: 89px;
+    left: 310px;
+	width: calc(var(--tamCuadricula) + 20px);
+    height: var(--tamCuadricula);
+    animation: 2s;
+	transform-origin: center bottom;
+	animation-name: animacionExplosionPatatapum;
+}
+
+.explosionPatatapum img {
+	width: 100%;
+    height: 100%;
+}
+
+@keyframes animacionExplosionPatatapum {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(1.6);
+	}
+  }
+
+#divPrueba {
+	position: absolute;
+	background-color: red;
+	width: 5px;
+	height: 5px;
+}
+
+#divFondo {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: url(../multimedia/fondo.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 99;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-position: center;
+}
+
+#btnJugar {
+	font-size: 190%;	
+	padding: 10px;
+	border-radius: 10%;
+	background-color: #bff041;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+#btnJugar:hover {
+	background-color: #81ac13;
+}
+
+
+#divDesbloquearPlanta {
+	position: absolute;
+	top: 0;
+	z-index: 9;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(184 137 93 / 60%);
+}
+
+#divDesbloquearPlanta .plantaLogo {
+	width: 110px;
+    top: 35%;
+}
+
+#divDesbloquearPlanta div {
+	width: 100%;
+	height: 100%;
+}
+	
+#divDesbloquearPlanta img {
+	width: 350px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+}
+
+#divDesbloquearPlanta .nombre {
+	position: absolute;
+	left: 50%;
+	top: 45.5%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	font-size: 36px;
+}
+
+#divDesbloquearPlanta .desc {
+	position: absolute;
+	left: 50%;
+	top: 59.5%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	font-size: 21px;
+	width: 290px;
+	height: 200px;
+}
+
+#divDesbloquearPlanta .precio {
+	position: absolute;
+	left: 50%;
+	top: 74%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	font-size: 19px;
+	width: 290px;
+}
+
+#btnBorrarRegistroPartida {
+	position: absolute;
+    top: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #f28582;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10%;
+    border-color: #f06e69;
+    right: 5px;
+}
+
+#btnBorrarRegistroPartida:hover {
+	background-color: #bd716f;
+}
+
+#divCartelNivel {
+	position: absolute;
+    top: 63%;
+    left: 79%;
+    width: 16%;
+}
+
+#divCartelNivel p {
+	position: absolute;
+    left: 16%;
+    top: 28%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    font-size: 34px;
+    font-weight: bold;
+    color: wheat;
+}
+
+#divCartelNivel img {
+	width: 50%;
+
+}
