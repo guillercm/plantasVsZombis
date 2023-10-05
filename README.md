@@ -25,6 +25,3 @@ Además, algunos zombis pueden nadar, como el Zombi con flotador.
 - Hielaguisantes: Ralentiza a los zombis.
 - Girasol: Genera recursos solares para que el jugador pueda plantar más plantas.
 - Nenúfar: Sirve como base para las plantas que solo pueden ser plantadas en tierra, se puedan poner en agua también.
-<br>
-Podéis ver un gameplay del juego
-<a href="gameplay.mp4">VER GAMEPLAY</a>
