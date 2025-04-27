@@ -612,7 +612,7 @@ for (let i = 0; i < 2; i++) {
 
 #divDesbloquearPlanta .plantaLogo {
 	width: 110px;
-    top: 35%;
+    top: 29%;
 }
 
 #divDesbloquearPlanta div {
@@ -632,7 +632,7 @@ for (let i = 0; i < 2; i++) {
 #divDesbloquearPlanta .nombre {
 	position: absolute;
 	left: 50%;
-	top: 45.5%;
+	top: 44.5%;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	font-size: 36px;
@@ -641,7 +641,7 @@ for (let i = 0; i < 2; i++) {
 #divDesbloquearPlanta .desc {
 	position: absolute;
 	left: 50%;
-	top: 59.5%;
+	top: 62.5%;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	font-size: 21px;
